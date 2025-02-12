@@ -18,3 +18,6 @@ app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 const authRoutes = require('./routes/authRoutes');
 app.use('/api/auth', authRoutes);
+
+const profileRoutes = require("./routes/profileRoutes");
+app.use("/api/profile", profileRoutes);

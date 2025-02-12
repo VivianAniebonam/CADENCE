@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test User Profile API</title>
+    <script>
+        const API_URL = "http://localhost:5000/api/profile";
+        let token = localStorage.getItem("token");  // Retrieve stored token
+
+        async function createOrUpdateProfile() {
+            const profileData = {
+                instruments: ["Guitar", "Piano"],
+                genres: ["Rock", "Blues"],
+                influences: ["Jimi Hendrix", "Eric Clapton"],
+                city: "Toronto",
+                socialLinks: {
+                    instagram: "https://instagram.com/mymusic",
+                    youtube: "https://youtube.com/mymusic"
+                },
+                bio: "I love making music and jamming with others!"
+            };
+
+            const response = await fetch(API_URL, {
+                method: "POST",
+                headers: { 
+                    "Content-Type": "application/json", 
+                    "Authorization": `Bearer ${token}` 
+                },
+                body: JSON.stringify(profileData)
+            });
+
+            const data = await response.json();
+            console.log("Create/Update Profile Response:", data);
+        }
+
+        async function getProfile() {
+            const userId = prompt("Enter user ID to fetch profile:");
+            if (!userId) return alert("User ID is required!");
+
+            const response = await fetch(`${API_URL}/${userId}`, {
+                method: "GET",
+                headers: { "Authorization": `Bearer ${token}` }
+            });
+
+            const data = await response.json();
+            console.log("Get Profile Response:", data);
+        }
+
+        async function deleteProfile() {
+            const response = await fetch(API_URL, {
+                method: "DELETE",
+                headers: { "Authorization": `Bearer ${token}` }
+            });
+
+            const data = await response.json();
+            console.log("Delete Profile Response:", data);
+        }
+
+        function setToken() {
+            const newToken = prompt("Enter your JWT Token:");
+            if (newToken) {
+                localStorage.setItem("token", newToken);
+                token = newToken;
+                alert("Token Set Successfully!");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Test User Profile API</h1>
+    <button onclick="setToken()">Set JWT Token</button>
+    <button onclick="createOrUpdateProfile()">Create/Update Profile</button>
+    <button onclick="getProfile()">Get Profile</button>
+    <button onclick="deleteProfile()">Delete Profile</button>
+</body>
+</html>
