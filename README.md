@@ -65,7 +65,7 @@ Git Architecture Diagram - https://imgur.com/a/7mqgIp0
 
 | Task                         | Commands/Instruction                                                                                                                |
 |------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
-| **Run the Backend**          | 1. Navigate to the backend directory: `cd backend`<br>2. Install dependencies: `npm install`<br>3. Start the server: `node server.js
+| **Run the Backend**          | 1. Navigate to the backend directory: `cd backend`<br>2. Install dependencies: `npm install`<br>3. Start the server: node server.js
 `   |
 | **Run the Frontend**         | 1. Navigate to the frontend directory: `cd frontend`<br>2. Install dependencies: `npm install`<br>3. Start the app: `npm start`    |
 | **Basic Git Commands**       | - Check status: `git status`<br>- Add changes: `git add .`<br>- Commit changes: `git commit -m "Your comment"`<br>- Push changes: `git push` |
