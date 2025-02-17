@@ -1,0 +1,41 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #f8f9fa;
+}
+
+input, textarea {
+  margin: 5px;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+textarea{
+  resize: none;
+}
+button {
+  padding: 8px 15px;
+  margin: 5px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+.grid-container {
+  display: grid;
+  margin: auto;
+  max-width: 50%;
+  grid-template-columns: auto auto;
+}
+.grid-item {
+  padding: 10px;
+  text-align: center;
+  word-wrap: break-word;
+  word-break: break-all;
+}
