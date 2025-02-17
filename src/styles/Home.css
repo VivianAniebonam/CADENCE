@@ -1,0 +1,128 @@
+/* 🎵 Music-Themed Background */
+body {
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+    background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+    margin: 0;
+    padding: 0;
+    color: white;
+  }
+  
+  /* 🎶 Home Page Container */
+  .home-container {
+    max-width: 600px;
+    margin: 80px auto;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 1.5s ease-in-out;
+  }
+  
+  /* 🎼 Music Notes Animation */
+  .music-notes {
+    font-size: 25px;
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    animation: floating 3s infinite ease-in-out;
+  }
+  
+  /* 🎤 Welcome Text */
+  .home-title {
+    font-size: 30px;
+    font-weight: bold;
+    color: #ffcc00; /* Golden Yellow */
+    text-shadow: 2px 2px 10px rgba(255, 204, 0, 0.7);
+  }
+  
+  /* 🎵 Subtitle */
+  .home-subtitle {
+    font-size: 22px;
+    color: #f8f8f8;
+    margin-bottom: 20px;
+  }
+  
+  .user-name {
+    font-weight: bold;
+    color: #ff8c00;
+    text-shadow: 1px 1px 5px rgba(255, 140, 0, 0.7);
+  }
+  
+  /* 🎸 Button Group */
+  .button-group {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+  }
+  
+  /* 🔊 Buttons */
+  .home-btn {
+    padding: 12px 18px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* 🎤 Profile Button */
+  .profile-btn {
+    background: #ff4500;
+  }
+  
+  .profile-btn:hover {
+    background: #e63e00;
+  }
+  
+  /* 🎸 Gig Board Button */
+  .gig-btn {
+    background: #1db954;
+  }
+  
+  .gig-btn:hover {
+    background: #17a447;
+  }
+  
+  /* 💬 Chat Button */
+  .chat-btn {
+    background: #007bff;
+  }
+  
+  .chat-btn:hover {
+    background: #0062cc;
+  }
+  
+  /* 🎶 Floating Music Notes Animation */
+  @keyframes floating {
+    0% {
+      transform: translateX(-50%) translateY(0);
+    }
+    50% {
+      transform: translateX(-50%) translateY(-10px);
+    }
+    100% {
+      transform: translateX(-50%) translateY(0);
+    }
+  }
+  
+  /* 🎼 Fade-in Animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
