@@ -1,38 +1,53 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import Navbar from "../components/Navbar";
+import "../styles/UserHome.css";
 
 const UserHome = () => {
   const navigate = useNavigate();
+  const [user, setUser] = useState(null);
 
-  const handleNavigation = (path) => {
-    navigate(path);
-  };
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const token = localStorage.getItem("token");
+        const response = await axios.get("http://localhost:5000/api/profile", {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+
+        if (response.data.user) {
+          setUser(response.data.user);
+        }
+      } catch (error) {
+        console.error("Error fetching user:", error);
+      }
+    };
+
+    fetchUser();
+  }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
-      <h1 className="text-3xl font-bold mb-4">Welcome to <span className="text-blue-500">CADENCE</span> 🎵</h1>
-      
-      <div className="bg-white p-6 rounded-lg shadow-md w-96 text-center">
-        <h2 className="text-xl font-semibold mb-4">Hello, [User's Name] 👋</h2>
+    <div className="userhome-container">
+      <Navbar />
+      <h1 className="userhome-title">
+        Welcome to <span className="brand-name">CADENCE</span> 🎵
+      </h1>
 
-        <button 
-          className="w-full bg-blue-500 text-white py-2 rounded-md mb-3 hover:bg-blue-600"
-          onClick={() => handleNavigation("/profile")}
-        >
+      <div className="userhome-card">
+        <h2 className="userhome-subtitle">
+          Hello, {user?.username || "Musician"}! 👋
+        </h2>
+
+        <button className="userhome-btn" onClick={() => navigate("/profile")}>
           View My Profile
         </button>
 
-        <button 
-          className="w-full bg-green-500 text-white py-2 rounded-md mb-3 hover:bg-green-600"
-          onClick={() => handleNavigation("/gigs")}
-        >
+        <button className="userhome-btn gig-btn" onClick={() => navigate("/gigs")}>
           Gig Board 🎸
         </button>
 
-        <button 
-          className="w-full bg-purple-500 text-white py-2 rounded-md hover:bg-purple-600"
-          onClick={() => handleNavigation("/chat")}
-        >
+        <button className="userhome-btn chat-btn" onClick={() => navigate("/chat")}>
           Chat 💬
         </button>
       </div>
