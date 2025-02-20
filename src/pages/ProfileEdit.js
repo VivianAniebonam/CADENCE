@@ -10,10 +10,10 @@ const ProfileEdit = () => {
         genres: "",
         influences: "",
         city: "",
-        youtubeLink: "",
-        instaLink: "",
         bio: "",
         yearsOfExperience: "",
+        youtube: "",
+        instagram: ""
     });
 
     useEffect(() => {
@@ -30,10 +30,10 @@ const ProfileEdit = () => {
                         genres: response.data.profile.genres?.join(", ") || "",
                         influences: response.data.profile.influences?.join(", ") || "",
                         city: response.data.profile.city || "",
-                        youtubeLink: response.data.profile.socialLinks?.youtube || "",
-                        instaLink: response.data.profile.socialLinks?.instagram || "",
                         bio: response.data.profile.bio || "",
                         yearsOfExperience: response.data.profile.yearsOfExperience || "", 
+                        youtube: response.data.profile.youtube || "",
+                        instagram: response.data.profile.instagram || ""
                     });
                 }
             } catch (error) {
@@ -49,16 +49,14 @@ const ProfileEdit = () => {
             const token = localStorage.getItem("token");
 
             const updatedProfile = {
-                instruments: profile.instruments.trim() ? profile.instruments.split(",").map(i => i.trim()) : undefined,
-                genres: profile.genres.trim() ? profile.genres.split(",").map(i => i.trim()) : undefined,
-                influences: profile.influences.trim() ? profile.influences.split(",").map(i => i.trim()) : undefined,
-                city: profile.city.trim() ? profile.city : undefined,
-                bio: profile.bio.trim() ? profile.bio : undefined,
-                yearsOfExperience: profile.yearsOfExperience ? Number(profile.yearsOfExperience) : undefined,
-                socialLinks: {
-                    youtube: profile.youtubeLink.trim() ? profile.youtubeLink : undefined,
-                    instagram: profile.instaLink.trim() ? profile.instaLink : undefined,
-                }
+                instruments: profile.instruments ? profile.instruments.split(",").map(i => i.trim()) : [],
+                genres: profile.genres ? profile.genres.split(",").map(i => i.trim()) : [],
+                influences: profile.influences ? profile.influences.split(",").map(i => i.trim()) : [],
+                city: profile.city,
+                bio: profile.bio,
+                yearsOfExperience: Number(profile.yearsOfExperience),
+                youtube: profile.youtube,
+                instagram: profile.instagram
             };
 
             const response = await axios.put("http://localhost:5000/api/profile", updatedProfile, {
@@ -81,32 +79,83 @@ const ProfileEdit = () => {
 
             <div className="input-group">
                 <label>Instruments</label>
-                <input type="text" placeholder="Enter instruments" value={profile.instruments} onChange={(e) => setProfile({ ...profile, instruments: e.target.value })} />
+                <input 
+                    type="text" 
+                    placeholder="Enter instruments (comma-separated)" 
+                    value={profile.instruments} 
+                    onChange={(e) => setProfile({ ...profile, instruments: e.target.value })} 
+                />
             </div>
 
             <div className="input-group">
                 <label>Genres</label>
-                <input type="text" placeholder="Enter genres" value={profile.genres} onChange={(e) => setProfile({ ...profile, genres: e.target.value })} />
+                <input 
+                    type="text" 
+                    placeholder="Enter genres (comma-separated)" 
+                    value={profile.genres} 
+                    onChange={(e) => setProfile({ ...profile, genres: e.target.value })} 
+                />
             </div>
 
             <div className="input-group">
                 <label>Years of Experience</label>
-                <input type="number" placeholder="Years of Experience" value={profile.yearsOfExperience} onChange={(e) => setProfile({ ...profile, yearsOfExperience: e.target.value })} />
+                <input 
+                    type="number" 
+                    placeholder="Enter years of experience" 
+                    value={profile.yearsOfExperience} 
+                    onChange={(e) => setProfile({ ...profile, yearsOfExperience: e.target.value })} 
+                />
             </div>
 
             <div className="input-group">
                 <label>Influences</label>
-                <input type="text" placeholder="Enter influences" value={profile.influences} onChange={(e) => setProfile({ ...profile, influences: e.target.value })} />
+                <input 
+                    type="text" 
+                    placeholder="Enter influences (comma-separated)" 
+                    value={profile.influences} 
+                    onChange={(e) => setProfile({ ...profile, influences: e.target.value })} 
+                />
             </div>
 
             <div className="input-group">
                 <label>City</label>
-                <input type="text" placeholder="Enter city" value={profile.city} onChange={(e) => setProfile({ ...profile, city: e.target.value })} />
+                <input 
+                    type="text" 
+                    placeholder="Enter your city" 
+                    value={profile.city} 
+                    onChange={(e) => setProfile({ ...profile, city: e.target.value })} 
+                />
             </div>
 
             <div className="input-group">
                 <label>Bio</label>
-                <textarea placeholder="Tell us about yourself" value={profile.bio} onChange={(e) => setProfile({ ...profile, bio: e.target.value })} />
+                <textarea 
+                    placeholder="Tell us about yourself" 
+                    value={profile.bio} 
+                    onChange={(e) => setProfile({ ...profile, bio: e.target.value })} 
+                />
+            </div>
+
+            <h3>Social Links</h3>
+
+            <div className="input-group">
+                <label>YouTube</label>
+                <input 
+                    type="text" 
+                    placeholder="Enter YouTube link" 
+                    value={profile.youtube} 
+                    onChange={(e) => setProfile({ ...profile, youtube: e.target.value })} 
+                />
+            </div>
+
+            <div className="input-group">
+                <label>Instagram</label>
+                <input 
+                    type="text" 
+                    placeholder="Enter Instagram link" 
+                    value={profile.instagram} 
+                    onChange={(e) => setProfile({ ...profile, instagram: e.target.value })} 
+                />
             </div>
 
             <div className="button-container">
