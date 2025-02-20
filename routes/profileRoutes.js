@@ -19,17 +19,9 @@ router.get("/", authMiddleware, async (req, res) => {
         // Get profile details
         const profile = await Profile.findOne({ userId });
 
-        return res.json({
-            user,
-            profile: profile || {
-                instruments: [],
-                genres: [],
-                yearsOfExperience: 0,
-                influences: [],
-                city: "",
-                bio: "",
-                socialLinks: {}
-            } // Return empty profile structure if it doesn't exist
+        return res.json({ 
+            user, 
+            profile: profile || null // Send null if no profile exists
         });
     } catch (error) {
         console.error("Get Profile Error:", error);
@@ -37,24 +29,35 @@ router.get("/", authMiddleware, async (req, res) => {
     }
 });
 
-// ✅ Update Profile (modify only updated fields)
+// ✅ Update Profile (or create if missing)
 router.put("/", authMiddleware, async (req, res) => {
     try {
         const userId = req.user.id;
 
+        // Replace `socialLinks` with direct `youtube` and `instagram` fields
+        const updatedProfileData = {
+            instruments: req.body.instruments || [],
+            genres: req.body.genres || [],
+            yearsOfExperience: req.body.yearsOfExperience || 0,
+            influences: req.body.influences || [],
+            city: req.body.city || "",
+            bio: req.body.bio || "",
+            youtube: req.body.youtube || "",
+            instagram: req.body.instagram || ""
+        };
+
         let profile = await Profile.findOne({ userId });
 
-        if (!profile) {
-            // ✅ Create new profile if missing
-            profile = new Profile({ userId, ...req.body });
-            await profile.save();
+        if (profile) {
+            // ✅ Update existing profile
+            profile = await Profile.findOneAndUpdate(
+                { userId }, 
+                { $set: updatedProfileData }, 
+                { new: true, runValidators: true }
+            );
         } else {
-            // ✅ Update only provided fields, retain existing data
-            Object.keys(req.body).forEach(key => {
-                if (req.body[key] !== undefined && req.body[key] !== null) {
-                    profile[key] = req.body[key];
-                }
-            });
+            // ✅ Create new profile
+            profile = new Profile({ userId, ...updatedProfileData });
             await profile.save();
         }
 
