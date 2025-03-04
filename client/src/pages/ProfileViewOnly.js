@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "../styles/Profile.css";
 
-const Profile = () => {
+const ProfileViewOnly = () => {
     const navigate = useNavigate();
     const [user, setUser] = useState({});
     const [profile, setProfile] = useState(null);
+    const { id } = useParams(); // Get the id parameter from the URL
 
     const getProfile = async () => {
         try {
             const token = localStorage.getItem("token");
-            const response = await axios.get("http://localhost:5000/api/profile", {
+            const response = await axios.get(`http://localhost:5000/api/profile/${id}`, {
                 headers: { Authorization: `Bearer ${token}` },
             });
 
@@ -28,7 +29,7 @@ const Profile = () => {
 
     return (
         <div className="profile-container">
-            <h2 className="profile-title">MY PROFILE</h2>
+            <h2 className="profile-title">USER PROFILE</h2>
             <h3 className="username">{user?.username || "User"}</h3>
             <p className="email">Email: {user?.email || "N/A"}</p>
 
@@ -59,12 +60,11 @@ const Profile = () => {
                     </div>
                 </>
             ) : (
-                <p>No profile found. Please update your profile.</p>
+                <p>No profile found.</p>
             )}
 
-            <button className="edit-btn" onClick={() => navigate("/edit-profile")}>Edit My Profile</button>
         </div>
     );
 };
 
-export default Profile;
+export default ProfileViewOnly;

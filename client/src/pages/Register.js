@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import "../styles/Register.css"; // ✅ Ensure this is correctly imported
 
 function Register() {
   const [username, setUsername] = useState("");
@@ -25,28 +26,46 @@ function Register() {
   };
 
   return (
-    <div>
-      <h2>Register Page</h2>
-      <input
-        type="text"
-        placeholder="Username"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-      />
-      <input
-        type="email"
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button onClick={handleRegister}>Register</button>
-      <p>Already have an account? <a href="/">Login</a></p>
+    <div className="register-container">
+      <div className="register-card">
+        <h2 className="register-title">Create an Account</h2>
+
+        <div className="input-group">
+          <label>Username</label>
+          <input
+            type="text"
+            placeholder="Enter username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+        </div>
+
+        <div className="input-group">
+          <label>Email</label>
+          <input
+            type="email"
+            placeholder="Enter email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
+
+        <div className="input-group">
+          <label>Password</label>
+          <input
+            type="password"
+            placeholder="Enter password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+
+        <button className="register-btn" onClick={handleRegister}>Register</button>
+
+        <p className="login-link">
+          Already have an account? <a href="/">Login</a>
+        </p>
+      </div>
     </div>
   );
 }

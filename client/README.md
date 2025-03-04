@@ -1,70 +1,114 @@
-# Getting Started with Create React App
+# CADENCE-Comp313-003
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Developed by Group 3, **CADENCE-Comp313-003** is a web application designed for musicians. Our project aims to connect musicians, enabling them to find other musicians to play, perform, and record music together. It also serves as a platform for posting and finding gig or performance opportunities.
 
-## Available Scripts
+## Application Architecture
 
-In the project directory, you can run:
+Below is the architecture diagram of the CADENCE web application:
 
-### `npm start`
+CADENCE Web App Architecture - https://imgur.com/a/vf3azL1
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Architecture Description
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **User Interaction**:
+  Musicians interact with the front-end interface, which is built using HTML, CSS, JavaScript, and React. This interface allows users to create and edit profiles, browse collaborations, and send messages.
 
-### `npm test`
+- **Data Flow**:
+  User interactions with the front-end trigger requests to the API (backend logic), which processes these requests. The API handles tasks such as matching musicians for collaborations and retrieving user profiles and gig details to be sent back to the user.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Backend Systems**:
+  The web server hosts the application and manages communication between the front-end, the back-end, and the data storage systems.
 
-### `npm run build`
+- **File System**:
+  Static files like images and media (e.g., profile pictures, gig posters) are stored here. The backend ensures these files are accessible to users upon request.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Database**:
+  Uses MongoDB to store and manage data related to users, their collaborations, and chat history. When a request is made, the API fetches the necessary data from the database and sends it back to the front-end.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Security and Data Integrity**:
+  The API prioritizes data validation and security during interactions with the database and file system to protect user data. Only authorized requests are processed.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Git Workflow and Architecture
 
-### `npm run eject`
+Our project utilizes a structured Git workflow to efficiently manage the development across multiple iterations and feature branches. Below is a detailed explanation of our repository's branching strategy, designed to support parallel development of features, regular integration, and robust testing.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Git Architecture Diagram - https://imgur.com/a/7mqgIp0
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Description of the Git Architecture
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- **Main Branch**: 
+  The central repository of the project where the source code's current stable version is maintained. All major releases are pulled from this branch.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- **Iteration Branches**:
+  - **Iteration 1** and **Iteration 2**: These branches represent different stages or versions of the project. They are used for developing new features in isolation before integrating them into the main branch.
 
-## Learn More
+- **Feature Branches**:
+  - **Front-end and Back-end**: Branches split from the respective iteration branch to focus specifically on the front-end or back-end parts of the project. This separation helps in specialized testing and faster development without interfering with other parts of the application.
+  - Each branch may have sub-branches for individual features or tasks assigned to different team members, such as Mayvis, Curtis, and Ritika on the front-end.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **Staging Branches**:
+  - **StagingFrontend and StagingBackend**: Critical for integration testing, acting as pre-production branches where code from feature branches is merged for final testing before moving back to the iteration branches or eventually to the main branch.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- **Team Member Specific Branches**:
+  - Branches like Ana and Vivian are used by individual team members for specific tasks or bug fixes, allowing developers to work independently on their tasks without impacting the main development flow.
 
-### Code Splitting
+### Integrating and Managing Changes
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- **Merging**: After development and initial testing are completed in the feature branches, changes are merged back into their respective staging branches for further integration testing.
+- **Pull Requests**: To ensure code quality and maintainability, pull requests are used for merging changes, allowing team leads or other developers to review code before it integrates into the main project.
+- **Continuous Integration/Continuous Deployment (CI/CD)**: Automated pipelines are set up to build and test the application whenever changes are pushed to specific branches, particularly the main branch and staging branches.
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Running the Application and Basic Git Commands
 
-### Advanced Configuration
+| Task                         | Commands/Instruction                                                                                                                |
+|------------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
+| **Run the Backend**          | 1. Navigate to the backend directory: `cd backend`<br>2. Install dependencies: `npm install`<br>3. Start the server: `npm start`   |
+| **Run the Frontend**         | 1. Navigate to the frontend directory: `cd frontend`<br>2. Install dependencies: `npm install`<br>3. Start the app: `npm start`    |
+| **Basic Git Commands**       | - Check status: `git status`<br>- Add changes: `git add .`<br>- Commit changes: `git commit -m "Your comment"`<br>- Push changes: `git push` |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Detailed Instructions
 
-### Deployment
+#### Backend
+- **Navigate to backend directory**: Open a terminal or command prompt and change directory to your backend folder with `cd backend`.
+- **Install dependencies**: Ensure all necessary dependencies are installed by running `npm install`.
+- **Start the server**: Launch your backend server with `npm start`, which should start listening for requests on a predefined port.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+#### Frontend
+- **Navigate to frontend directory**: In a separate terminal window, change to the frontend directory using `cd frontend`.
+- **Install dependencies**: Run `npm install` to install required packages for the frontend.
+- **Start the frontend application**: Execute `npm start` to compile and launch your frontend application in the default web browser.
 
-### `npm run build` fails to minify
+#### Using Git
+- **Check Git status**: Use `git status` to see uncommitted changes.
+- **Add changes**: Add all current changes to the staging area with `git add .`.
+- **Commit changes**: Commit your staged changes with a descriptive message using `git commit -m "Your comment"`.
+- **Push changes**: Push your commits to your remote repository using `git push`. Ensure you specify the branch if not pushing to the main branch.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Common Troubleshooting
+- **Ensure all environment variables are correctly set** for both the frontend and backend operations.
+- **Resolve any dependency issues** by possibly removing the `node_modules` folder and `package-lock.json` file, then running `npm install` again.
+- **Manage port conflicts** by checking that no other processes are running on the same ports as your application.
+- **Address network issues** by confirming that your firewall or network settings do not block the application ports.
+
+## Using the `.env` File
+
+The `.env` file is used to manage sensitive configuration details and environment variables securely. This file is not tracked by Git to protect secrets such as API keys, database passwords, and other private data.
+
+### Purpose of the `.env` File
+
+- **Security**: Keeps sensitive data like API keys and passwords out of the public codebase.
+- **Flexibility**: Allows you to change settings without altering the code; especially useful for switching between development and production environments.
+
+### How to Use the `.env` File
+
+1. **Location**: Ensure the `.env` file is located in the root of your project (both backend and frontend if applicable).
+2. **Content**: Add environment-specific variables in the format `KEY=value`. For example:
+   ```plaintext
+   DB_HOST=localhost
+   DB_USER=root
+   DB_PASS=your_password
+   API_KEY=your_api_key_here
+
