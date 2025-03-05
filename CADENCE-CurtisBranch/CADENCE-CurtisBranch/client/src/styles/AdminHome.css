@@ -1,0 +1,106 @@
+.admin-home-container {
+    text-align: center;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .admin-home-container h1 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
+  }
+  
+  .admin-button {
+    background-color: #ff6f00;
+    color: white;
+    font-size: 16px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 200px; /* You can adjust this as needed */
+  }
+  
+  .admin-button:hover {
+    background-color: #e65c00;
+  }
+  
+  .admin-button:focus {
+    outline: none;
+  }
+  
+  /* ManageUsers Page Styling */
+.manage-users-container {
+    padding: 20px;
+    background-color: #f8f9fa;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .search-bar {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .search-bar input {
+    padding: 10px;
+    width: 80%;
+    margin-right: 10px;
+  }
+  
+  .search-bar button {
+    padding: 10px;
+    background-color: #ff9800;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .search-bar button:hover {
+    background-color: #f57c00;
+  }
+  
+  .user-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 15px;
+  }
+  
+  .user-card {
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  .user-card span {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+  
+  .user-card button {
+    background-color: #ff9800;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .user-card button:hover {
+    background-color: #f57c00;
+  }
+  

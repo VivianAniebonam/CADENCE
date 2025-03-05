@@ -1,0 +1,79 @@
+.profile-container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 30px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.profile-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ff7f00;
+  margin-bottom: 10px;
+}
+
+.username {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.email {
+  font-size: 14px;
+  color: gray;
+}
+
+.divider {
+  margin: 15px 0;
+  border: 1px solid #ddd;
+}
+
+.bio-section {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.bio-section h4 {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.bio-section p {
+  font-size: 14px;
+  color: #444;
+}
+
+.grid-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  text-align: left;
+}
+
+.grid-item {
+  width: 48%;
+  padding: 5px 0;
+}
+
+.grid-item b {
+  font-weight: bold;
+}
+
+.edit-btn {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: #ff7f00;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  width: 100%;
+}
+
+.edit-btn:hover {
+  background: #e67000;
+}
