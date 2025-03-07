@@ -1,0 +1,52 @@
+.account-settings-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    font-family: sans-serif;
+    background-color: #f8f8f8;
+    min-height: 100vh;
+    justify-content: center;
+}
+
+.account-settings-title {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #ff9900;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.account-settings-card {
+    background-color: white;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    padding: 30px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.manage-account-heading {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.delete-account-btn {
+    background-color: #ff9900;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+    box-sizing: border-box;
+    font-weight: bold;
+}
+
+.delete-account-btn:hover {
+    background-color: #e68a00;
+}

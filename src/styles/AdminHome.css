@@ -1,0 +1,36 @@
+.admin-home-container {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+min-height: 100vh;
+background-color: #f8f8f8; 
+font-family: sans-serif;
+}
+
+.admin-welcome {
+font-size: 2em;
+color: #333;
+margin-bottom: 30px;
+}
+
+.manage-users-btn,
+.manage-gig-postings-btn {
+background-color: #ff9900; 
+color: white;
+padding: 15px 30px;
+margin: 10px;
+border: none;
+border-radius: 8px;
+font-size: 1.2em;
+cursor: pointer;
+transition: background-color 0.3s;
+width: 280px; 
+box-sizing: border-box;
+font-weight: bold;
+}
+
+.manage-users-btn:hover,
+.manage-gig-postings-btn:hover {
+background-color: #e68a00; 
+}
