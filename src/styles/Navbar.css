@@ -1,0 +1,75 @@
+.navbar {
+  display: flex;
+  justify-content: center; /* ✅ Centers the entire Navbar */
+  align-items: center;
+  background-color: #ff8200;
+  padding: 15px 30px;
+  color: white;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 60px;
+  z-index: 1000;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Navbar Title (Logo) */
+.navbar-title {
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+  margin-right: 30px; /* ✅ Adds spacing between logo & buttons */
+}
+
+.navbar-title:hover {
+  transform: scale(1.05);
+}
+
+/* Wrapper for Centering Navbar Items */
+.navbar-content {
+  display: flex;
+  align-items: center;
+  gap: 30px; /* ✅ Adjusts spacing between items */
+}
+
+/* Navbar Links */
+.navbar-links {
+  display: flex;
+  gap: 25px;
+}
+
+.navbar-links button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.2s ease-in-out;
+}
+
+.navbar-links button:hover {
+  color: #fdd835; /* Gold color on hover */
+  transform: scale(1.1);
+}
+
+/* Prevent Exceeding Screen */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+  }
+
+  .navbar-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .navbar-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
