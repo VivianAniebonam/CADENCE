@@ -1,9 +1,18 @@
 const express = require("express");
 const Profile = require("../models/Profile");
+const { getRecommendedProfiles, searchProfiles } = require("../controllers/profileController");
 const User = require("../models/User");
 const authMiddleware = require("../middleware/authMiddleware");
 
 const router = express.Router();
+
+// Route to get recommended profiles
+router.get("/recommended", authMiddleware, getRecommendedProfiles);
+
+
+// Search profiles based on filters
+router.get("/search", authMiddleware, searchProfiles);
+
 
 // ✅ Get Profile (return user & profile separately)
 router.get("/", authMiddleware, async (req, res) => {
