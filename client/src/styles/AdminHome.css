@@ -1,0 +1,46 @@
+.admin-home-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f8f8f8;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.admin-title {
+  font-size: 2em;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.admin-subtitle {
+  font-size: 1.2em;
+  color: #777;
+  margin-bottom: 20px;
+}
+
+.admin-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.admin-btn {
+  background-color: #ff9900;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 250px;
+}
+
+.admin-btn:hover {
+  background-color: #e68a00;
+}
