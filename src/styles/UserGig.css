@@ -1,0 +1,59 @@
+.user-gig-page-wrapper {
+display: flex;
+justify-content: center;
+align-items: center;
+min-height: 100vh;
+background-color: #f4f4f4;
+}
+
+.user-gig-container {
+width: 400px;
+padding: 20px;
+background-color: white;
+border-radius: 8px;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.user-gig-title {
+text-align: center;
+color: #ff9800;
+}
+
+.field-row {
+display: flex;
+justify-content: space-between;
+margin-bottom: 10px;
+align-items: center;
+}
+
+.description-row {
+align-items: flex-start; /* Align description to top */
+}
+
+.field-label {
+font-weight: bold;
+width: 30%;
+}
+
+.field-value {
+width: 65%;
+background-color: #f0f0f0;
+padding: 8px;
+border-radius: 4px;
+}
+
+.button-container {
+text-align: center;
+margin-top: 20px;
+}
+
+.view-profile-btn {
+background-color: #ff9800;
+color: white;
+padding: 10px 20px;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+margin-left: 120px; 
+white-space: nowrap;
+}

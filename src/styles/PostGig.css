@@ -1,0 +1,90 @@
+.post-gig-page-wrapper {
+background-color: #f9f9f9;
+padding-top: 60px; 
+}
+
+.post-gig-container {
+max-width: 600px; 
+margin: 50px auto; 
+padding: 20px;
+background: white;
+box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+border-radius: 8px;
+text-align: center;
+}
+
+.post-gig-title {
+color: #FF6600;
+font-size: 24px;
+font-weight: bold;
+margin-bottom: 20px;
+}
+
+.input-group {
+margin-bottom: 15px;
+width: 350px;
+margin: 0 auto; 
+text-align: left;
+}
+
+.input-group label {
+display: block;
+font-size: 14px;
+font-weight: bold;
+margin-bottom: 5px;
+color: #333;
+}
+
+.input-group input,
+.input-group select,
+.input-group textarea {
+width: 100%;
+padding: 10px;
+border: 2px solid #ddd;
+border-radius: 5px;
+font-size: 14px;
+transition: all 0.3s ease;
+}
+
+.input-group input:focus,
+.input-group select:focus,
+.input-group textarea:focus {
+border-color: #ff7f00;
+outline: none;
+}
+
+.input-group textarea {
+resize: vertical;
+min-height: 100px;
+}
+
+.post-gig-btn {
+background-color: #FF6600;
+color: white;
+border: none;
+padding: 10px 12px;
+border-radius: 5px;
+cursor: pointer;
+font-size: 16px;
+font-weight: bold;
+transition: 0.3s;
+display: block;
+margin: 20px auto 0;
+margin-left: 230px; 
+white-space: nowrap;
+}
+
+.post-gig-btn:hover {
+background: #e06b00;
+}
+
+.error-message {
+color: red;
+margin-bottom: 10px;
+}
+
+@media (max-width: 600px) {
+.input-group {
+    width: 90%;
+}
+}
