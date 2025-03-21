@@ -48,14 +48,14 @@ const RecommendedProfiles = () => {
             <p><b>Influences:</b> {profile.influences.join(", ")}</p>
             <p><b>City:</b> {profile.city}</p>
             <p><b>Years of Experience:</b> {profile.yearsOfExperience}</p>
-            <button className="view-profile-button" onClick={() => viewProfile(profile)}>View Full Profile</button>
+            {/*<button className="view-profile-button" onClick={() => viewProfile(profile)}>View Full Profile</button> */}
           </div>
         ))}
       </div>
       <br/>
       <div className="search-bar">
         {/*Shuffle doesn't do anything right now*/}
-      <button className="search-btn" onClick={getProfiles}>Shuffle</button>
+      {/*<button className="search-btn" onClick={getProfiles}>Shuffle</button>*/}
       </div>
     </div>
   );

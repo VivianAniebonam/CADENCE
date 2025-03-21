@@ -17,6 +17,10 @@ import RecommendedProfiles from "./pages/RecommendedProfiles";
 import Search from "./pages/Search";
 import ViewUserProfile from "./pages/ViewUserProfile";
 
+//Gig pages
+import GigBoard from "./pages/GigBoard";
+import MyGigs from "./pages/MyGigs";
+
 function App() {
   return (
     <Router>
@@ -56,6 +60,11 @@ const WithNavbar = () => {
         <Route path="/search" element={<Search />} />
         <Route path="/profile/:id" element={<ViewUserProfile />} />
         <Route path="/recommended-profiles" element={<RecommendedProfiles />} />
+
+        {/*Gig Pages*/}
+        <Route path="/gigs" element={<GigBoard />} />
+        <Route path="/my-gigs" element={<MyGigs />} />
+        
       </Routes>
     </>
   );
