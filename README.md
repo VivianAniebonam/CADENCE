@@ -58,9 +58,6 @@ Git Architecture Diagram - https://imgur.com/a/7mqgIp0
 - **Pull Requests**: To ensure code quality and maintainability, pull requests are used for merging changes, allowing team leads or other developers to review code before it integrates into the main project.
 - **Continuous Integration/Continuous Deployment (CI/CD)**: Automated pipelines are set up to build and test the application whenever changes are pushed to specific branches, particularly the main branch and staging branches.
 
-
-
-
 ## Running the Application and Basic Git Commands
 
 | Task                         | Commands/Instruction                                                                                                                |
@@ -111,4 +108,3 @@ The `.env` file is used to manage sensitive configuration details and environmen
    DB_USER=root
    DB_PASS=your_password
    API_KEY=your_api_key_here
-

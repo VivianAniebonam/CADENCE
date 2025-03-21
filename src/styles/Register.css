@@ -1,0 +1,100 @@
+/* Ensure full-page centering */
+.register-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f9f9f9;
+}
+
+/* Styling for the register card */
+.register-card {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  text-align: center;
+}
+
+/* Centering the title properly */
+.register-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ff7f00;
+  margin-bottom: 15px;
+  text-align: center;
+  display: block;
+}
+
+/* Form fields */
+.input-group {
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.input-group input:focus {
+  border-color: #ff7f00;
+  outline: none;
+}
+
+/* Register button */
+.register-btn {
+  width: 100%;
+  background: #ff7f00;
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.register-btn:hover {
+  background: #e06b00;
+}
+
+/* Centering the login link */
+.auth-links {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+/* Login link */
+.login-link a {
+  color: #ff7f00;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .register-card {
+      width: 90%;
+  }
+}
