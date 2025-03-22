@@ -1,0 +1,75 @@
+.post-gig-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0;
+    background-color: #f9f9f9;
+    min-height: 100vh;
+  }
+  
+  .post-gig-card {
+    background-color: white;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+  }
+  
+  .post-gig-title {
+    font-size: 24px;
+    margin-bottom: 25px;
+    color: #f57c00;
+  }
+  
+  .input-group {
+    margin-bottom: 18px;
+    text-align: left;
+  }
+  
+  .input-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 6px;
+    font-size: 14px;
+  }
+  
+  .input-group input,
+  .input-group select,
+  .input-group textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    resize: none;
+  }
+  
+  textarea {
+    min-height: 100px;
+  }
+  
+  .post-gig-btn {
+    background-color: #f57c00;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+  }
+  
+  .post-gig-btn:hover {
+    background-color: #e86a00;
+  }
+  
+  .error-message {
+    color: red;
+    margin-bottom: 15px;
+    font-size: 14px;
+  }
+  

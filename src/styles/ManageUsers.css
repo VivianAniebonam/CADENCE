@@ -1,0 +1,77 @@
+.manage-users-container {
+    max-width: 600px;
+    margin: 40px auto;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+}
+
+.manage-users-title {
+    color: #FF6600;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.search-bar input {
+    width: 250px;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.search-bar button {
+    background-color: #FF6600;
+    color: white;
+    border: none;
+    padding: 10px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.user-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.user-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 10px 15px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.user-card span {
+    font-weight: bold;
+    color: #333;
+}
+
+.user-card button {
+    padding: 8px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.view-profile {
+    background-color: #007BFF;
+    color: white;
+}
+
+.delete-user {
+    background-color: #DC3545;
+    color: white;
+}
