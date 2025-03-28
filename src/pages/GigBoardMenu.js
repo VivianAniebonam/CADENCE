@@ -8,7 +8,7 @@ const GigBoardMenu = () => {
   return (
     <div className="gig-board-menu">
       <h2>Gig Board Menu</h2>
-      <button className="gig-button" onClick={() => navigate("/browse-gigs")}>
+      <button className="gig-button" onClick={() => navigate("/gigs")}>
         Browse Gig Board
       </button>
       <button className="gig-button" onClick={() => navigate("/view-my-gigs")}>

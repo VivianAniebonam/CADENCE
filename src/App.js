@@ -1,4 +1,3 @@
-// ✅ App.js
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./components/Navbar";
@@ -20,20 +19,24 @@ import MyGigs from "./pages/MyGigs";
 import GigBoardMenu from "./pages/GigBoardMenu";
 import PostGig from "./pages/PostGig";
 import EditGig from "./pages/EditGig";
-import UserGig from "./pages/UserGig"; // ✅ Added
+import UserGig from "./pages/UserGig";
+import UserViewProfile from "./pages/UserViewProfile"; // ✅ This one
 
 function App() {
   return (
     <Router>
       <Routes>
+        {/* Routes without Navbar */}
         <Route path="/" element={<Navigate to="/login" />} />
-        <Route path="/*" element={<WithNavbar />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/admin-home" element={<AdminHome />} />
         <Route path="/manage-users" element={<ManageUsers />} />
         <Route path="/manage-gig-postings" element={<ManageGigPostings />} />
         <Route path="/admin-view-profile/:id" element={<AdminViewProfile />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+
+        {/* All routes with Navbar */}
+        <Route path="/*" element={<WithNavbar />} />
       </Routes>
     </Router>
   );
@@ -50,13 +53,14 @@ const WithNavbar = () => {
         <Route path="/account-settings" element={<AccountSettings />} />
         <Route path="/search" element={<Search />} />
         <Route path="/profile/:id" element={<ViewUserProfile />} />
+        <Route path="/user-view-profile/:id" element={<UserViewProfile />} /> {/* ✅ NOW WITH NAVBAR */}
         <Route path="/recommended-profiles" element={<RecommendedProfiles />} />
         <Route path="/gigs" element={<GigBoard />} />
         <Route path="/gig-board-menu" element={<GigBoardMenu />} />
         <Route path="/view-my-gigs" element={<MyGigs />} />
         <Route path="/post-gig" element={<PostGig />} />
         <Route path="/edit-gig/:gigId" element={<EditGig />} />
-        <Route path="/gig/:gigId" element={<UserGig />} /> {/* ✅ User Gig Page */}
+        <Route path="/gig/:gigId" element={<UserGig />} />
       </Routes>
     </>
   );
