@@ -10,42 +10,39 @@ import Register from "./pages/Register";
 import AdminHome from "./pages/AdminHome";
 import ManageUsers from "./pages/ManageUsers";
 import ManageGigPostings from "./pages/ManageGigPostings";
-import AdminViewProfile from "./pages/AdminViewProfile"; // ✅ New Import
-
-//The missing pages
+import AdminViewProfile from "./pages/AdminViewProfile";
 import RecommendedProfiles from "./pages/RecommendedProfiles";
 import Search from "./pages/Search";
 import ViewUserProfile from "./pages/ViewUserProfile";
-
-//Gig pages
 import GigBoard from "./pages/GigBoard";
 import MyGigs from "./pages/MyGigs";
+import GigBoardMenu from "./pages/GigBoardMenu";
+import PostGig from "./pages/PostGig";
+import EditGig from "./pages/EditGig";
+import UserGig from "./pages/UserGig";
+import Notifications from "./pages/Notifications";
+import UserViewProfile from "./pages/UserViewProfile"; // ✅ This one
 
 function App() {
   return (
     <Router>
       <Routes>
+        {/* Routes without Navbar */}
         <Route path="/" element={<Navigate to="/login" />} />
-
-        {/* Routes that show the Navbar */}
-        <Route path="/*" element={<WithNavbar />} />
-
-        {/* Admin pages */}
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/admin-home" element={<AdminHome />} />
         <Route path="/manage-users" element={<ManageUsers />} />
         <Route path="/manage-gig-postings" element={<ManageGigPostings />} />
-        <Route path="/admin-view-profile/:id" element={<AdminViewProfile />} /> {/* ✅ Add this */}
+        <Route path="/admin-view-profile/:id" element={<AdminViewProfile />} />
 
-        {/* Auth Pages */}
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-
+        {/* All routes with Navbar */}
+        <Route path="/*" element={<WithNavbar />} />
       </Routes>
     </Router>
   );
 }
 
-// Component wrapper for user pages with Navbar
 const WithNavbar = () => {
   return (
     <>
@@ -55,16 +52,17 @@ const WithNavbar = () => {
         <Route path="/profile" element={<Profile />} />
         <Route path="/edit-profile" element={<ProfileEdit />} />
         <Route path="/account-settings" element={<AccountSettings />} />
-
-        {/*Search, ViewUserProfile, and RecommendedProfiles*/}
         <Route path="/search" element={<Search />} />
         <Route path="/profile/:id" element={<ViewUserProfile />} />
+        <Route path="/user-view-profile/:id" element={<UserViewProfile />} /> {/* ✅ NOW WITH NAVBAR */}
         <Route path="/recommended-profiles" element={<RecommendedProfiles />} />
-
-        {/*Gig Pages*/}
         <Route path="/gigs" element={<GigBoard />} />
-        <Route path="/my-gigs" element={<MyGigs />} />
-        
+        <Route path="/gig-board-menu" element={<GigBoardMenu />} />
+        <Route path="/view-my-gigs" element={<MyGigs />} />
+        <Route path="/post-gig" element={<PostGig />} />
+        <Route path="/edit-gig/:gigId" element={<EditGig />} />
+        <Route path="/gig/:gigId" element={<UserGig />} />
+        <Route path="/notifications" element={<Notifications />} />
       </Routes>
     </>
   );

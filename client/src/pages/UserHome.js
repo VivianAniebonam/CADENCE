@@ -46,9 +46,10 @@ const UserHome = () => {
           View My Profile
         </button>
 
-        <button className="userhome-btn gig-btn" onClick={() => navigate("/gigs")}>
-          Gig Board 🎸
-        </button>
+        <button className="userhome-btn gig-btn" onClick={() => navigate("/gig-board-menu")}>
+  Gig Board 🎸
+</button>
+
 
         <button className="userhome-btn chat-btn" onClick={() => navigate("/chat")}>
           Chat 💬

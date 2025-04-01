@@ -1,0 +1,33 @@
+.gig-board-menu {
+    max-width: 500px;
+    margin: 60px auto;
+    text-align: center;
+  }
+  
+  .gig-board-menu h2 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #ff7700;
+    margin-bottom: 20px;
+  }
+  
+  .gig-button {
+    display: block;
+    width: 100%;
+    background-color: #ff9900;
+    color: white;
+    border: none;
+    padding: 14px 20px;
+    margin: 10px 0;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .gig-button:hover {
+    background-color: #e08000;
+    transform: scale(1.03);
+  }
+  
