@@ -1,0 +1,94 @@
+.chat-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  overflow: hidden;
+  position: relative;
+}
+
+.chat-header {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 8px;
+}
+
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 70px; /* ensures space for input */
+  display: flex;
+  flex-direction: column;
+}
+
+.message-bubble {
+  max-width: 60%;
+  margin-bottom: 24px;
+  padding: 10px;
+  border-radius: 15px;
+  position: relative;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.message-bubble.sent {
+  background-color: #f38c20; /* Orange for your design */
+  color: white;
+  align-self: flex-end;
+}
+
+.message-bubble.received {
+  background-color: #ececec;
+  color: black;
+  align-self: flex-start;
+}
+
+.timestamp {
+  font-size: 0.7rem;
+  position: absolute;
+  bottom: -18px;
+  right: 5px;
+}
+
+.message-bubble.sent .timestamp {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.message-bubble.received .timestamp {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.chat-input {
+  display: flex;
+  padding: 10px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: white;
+  border-top: 1px solid #ddd;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  margin-right: 10px;
+}
+
+.chat-input button {
+  padding: 8px 16px;
+  background-color: #f38c20;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.no-conversation {
+  padding: 20px;
+  text-align: center;
+  color: #888;
+}

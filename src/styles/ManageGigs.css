@@ -1,0 +1,99 @@
+.manage-gig-container {
+  max-width: 700px;
+  margin: 80px auto 0; /* add top margin for spacing under navbar */
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.manage-title {
+  font-size: 24px;
+  color: orange;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.gig-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.gig-item {
+  background-color: #f9f9f9;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: left;
+}
+
+.gig-title {
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+
+.gig-subtext {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 12px;
+}
+
+.gig-actions button {
+  padding: 8px 12px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.view-button {
+  background-color: orange;
+  color: white;
+}
+
+.delete-button {
+  background-color: #ff5c5c;
+  color: white;
+}
+
+.no-gigs-message {
+  margin-top: 16px;
+  font-size: 14px;
+  color: #555;
+}
+
+/* Search section layout */
+.search-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+/* Styled search button */
+.search-button {
+  background-color: #ffa500;
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.2s ease;
+}
+
+.search-button:hover {
+  background-color: #ff9000;
+}

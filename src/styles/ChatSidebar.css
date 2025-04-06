@@ -1,0 +1,110 @@
+.chat-sidebar {
+  width: 280px;
+  border-right: 1px solid #ddd;
+  padding: 15px;
+  overflow-y: auto;
+  background-color: #fafafa;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-sidebar h4 {
+  margin-bottom: 10px;
+}
+
+.chat-sidebar input {
+  padding: 8px;
+  margin-bottom: 5px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+
+.chat-sidebar button {
+  padding: 8px;
+  margin-bottom: 10px;
+  background-color: #000;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.search-results {
+  max-height: 150px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.search-result-item {
+  padding: 8px;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+  color: black;
+  background-color: transparent;
+}
+
+.search-result-item:hover {
+  background-color: #f38c20;
+  color: white;
+}
+
+.conversations {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.conversation-item {
+  position: relative;
+  padding: 8px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  background-color: #fafafa;
+  margin-bottom: 5px;
+  border-radius: 4px;
+}
+
+.conversation-item.selected {
+  background-color: #f38c20;
+  color: #fff;
+}
+
+.conversation-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.conversation-username {
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+.delete-button {
+  background-color: transparent;
+  border: none;
+  color: #888;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.delete-button:hover {
+  color: red;
+}
+
+.conversation-last-message {
+  font-size: 0.85rem;
+  color: #555;
+  margin-top: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 230px; /* Adjust as needed */
+}
+
+em {
+  color: #888;
+  font-size: 0.9rem;
+}

@@ -1,0 +1,6 @@
+.chat-container {
+  display: flex;
+  height: calc(100vh - 70px); /* Adjust if navbar is different height */
+  margin-top: 70px;           /* Matches navbar height */
+  overflow: hidden;
+}

@@ -1,0 +1,23 @@
+.gig-board-menu {
+  padding: 2rem;
+  background-color: #fff;
+  text-align: center;
+  min-height: 80vh;
+}
+
+.gig-button {
+  display: block;
+  margin: 1rem auto;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  background-color: orange;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.gig-button:hover {
+  background-color: darkorange;
+}

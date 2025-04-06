@@ -1,0 +1,97 @@
+.profile-container {
+  margin-top: 80px; /* Adjust based on your navbar height */
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Title styling */
+.profile-title {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #f38c20;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+/* Each label-input pair */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background: #f9f9f9;
+  resize: none; /* for textarea if you want to disable resizing */
+  font-size: 1rem;
+}
+
+/* Container for the two buttons */
+.button-container {
+  display: flex;
+  justify-content: flex-end; /* aligns buttons to the right */
+  gap: 10px;                 /* space between them */
+  margin-top: 20px;
+}
+
+/* Common button styles */
+.view-profile-button,
+.apply-button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background-color 0.3s ease;
+}
+
+/* Differentiate the two buttons with colors */
+.view-profile-button {
+  background-color: #666; /* gray example */
+  color: #fff;
+}
+
+.view-profile-button:hover {
+  background-color: #444;
+}
+
+.apply-button {
+  background-color: #f38c20; /* orange color */
+  color: #fff;
+}
+
+.apply-button:hover {
+  background-color: #d7781c;
+}
+
+/* Adjust for mobile if needed */
+@media (max-width: 600px) {
+  .profile-container {
+    margin: 20px;
+    padding: 15px;
+  }
+  .button-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .button-container button {
+    width: 100%;
+  }
+}
