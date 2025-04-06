@@ -5,9 +5,7 @@ const User = require("../models/User");
 
 const router = express.Router();
 
-/**
- * ✅ USER REGISTRATION (Always Registered as "registered")
- */
+// ✅ Register new user
 router.post("/register", async (req, res) => {
   try {
     const { username, email, password } = req.body;
@@ -38,9 +36,7 @@ router.post("/register", async (req, res) => {
   }
 });
 
-/**
- * ✅ USER LOGIN
- */
+// ✅ Login user and return token + user object
 router.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -59,7 +55,6 @@ router.post("/login", async (req, res) => {
       return res.status(400).json({ msg: "Invalid credentials" });
     }
 
-    // ✅ Include username and userType in the JWT payload
     const token = jwt.sign(
       {
         id: user._id,
@@ -73,7 +68,8 @@ router.post("/login", async (req, res) => {
     res.json({
       token,
       userType: user.userType,
-      username: user.username, // ✅ optional if frontend needs it
+      username: user.username,
+      userId: user._id, // ✅ make sure this is returned
     });
   } catch (error) {
     console.error("Login Error:", error);
