@@ -57,3 +57,13 @@ cursor: pointer;
 margin-left: 120px; 
 white-space: nowrap;
 }
+.apply-btn {
+  background-color: #ff9800;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 120px;
+  white-space: nowrap;
+}
