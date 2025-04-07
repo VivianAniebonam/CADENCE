@@ -96,6 +96,9 @@ function UserGig() {
           <button className="view-profile-btn" onClick={handleViewUserProfile}>
             View User Profile
           </button>
+          <button className="apply-btn" onClick={handleApplyToGig}>
+            Apply To This Gig
+          </button>
         </div>
       </div>
     </div>
