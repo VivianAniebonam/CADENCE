@@ -1,44 +1,84 @@
-/* Container Setup */
-.search-container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 30px 16px;
-  background-color: #fffaf6;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+/* Notifications.css */
 
-/* Page Title */
-.profile-title {
-  text-align: center;
-  font-size: 26px;
-  font-weight: 700;
-  color: #f97316;
-  margin-bottom: 16px;
-}
-
-/* Grid for Cards - vertical layout */
-.grid-container {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  gap: 20px;
-  margin-top: 20px;
-}
-
-/* Card Layout */
-.date-card {
-  background-color: white;
+/* Container for the entire notifications page */
+.notifications-container {
+  max-width: 600px;
+  margin: 60px auto 20px auto; /* Top margin ensures spacing below the navbar */
   padding: 20px;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  width: 50%;
-  text-align: center;
-  line-height: 2;
+  font-family: sans-serif;
 }
 
-.date-card a {
+/* Title styling */
+.notifications-title {
+  text-align: center;
+  color: #f38c20;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+/* Instructions text */
+.instructions {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+/* Grid container for the date cards */
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+/* Date card styling */
+.date-card {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 15px;
+  background-color: #f9f9f9;
+}
+
+/* Date header inside each card */
+.date-header {
+  margin: 0;
+  margin-bottom: 10px;
+  font-size: 1.25rem;
+  color: #444;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 5px;
+}
+
+/* Notification entry styling */
+.notification-entry {
+  margin: 8px 0;
+  line-height: 1.4;
+  font-size: 0.95rem;
+}
+
+/* No notifications text */
+.no-notifications {
+  color: #909090;
+  font-style: italic;
+  margin-left: 5px;
+}
+
+/* Link styling */
+.applicant-link,
+.gig-link {
+  color: #f38c20;
+  text-decoration: none;
   font-weight: bold;
+}
+
+.applicant-link:hover,
+.gig-link:hover {
+  text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .notifications-container {
+    margin: 40px 10px;
+    padding: 15px;
+  }
 }
