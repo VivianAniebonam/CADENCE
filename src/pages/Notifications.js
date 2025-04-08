@@ -1,68 +1,105 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "../styles/Notifications.css";
 
 const Notifications = () => {
-  const [selectedFilter, setFilter] = useState("keyword");
-  const [keywords, setKeywords] = useState("");
   const [applicants, setApplicants] = useState([]);
   const [dates, setDates] = useState([]);
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
+  // Retrieve the logged-in user from localStorage
+  const user = JSON.parse(localStorage.getItem("user") || "{}");
+  console.log("Logged in user:", user);
+
+  // Generate an array of Date objects for the last 7 days
+  const getLast7Days = () => {
+    const result = [];
+    for (let i = 0; i < 7; i++) {
+      const d = new Date();
+      d.setDate(d.getDate() - i);
+      result.push(new Date(d));
+    }
+    setDates(result);
+  };
+
+  // Format a Date object as "Month Day, Year" (e.g., "March 30, 2025")
+  const formatDate = (date) => {
+    const options = { month: "long", day: "numeric", year: "numeric" };
+    return date.toLocaleDateString(undefined, options);
+  };
+
+  // Filter applicants whose dateApplied matches the provided date
+  const filterApplicants = (date) => {
+    return applicants.filter(
+      (applicant) =>
+        new Date(applicant.dateApplied).toDateString() === date.toDateString()
+    );
+  };
+
+  // Fetch notifications for the current user (as the gig poster)
   const getApplicants = async () => {
+    if (!user?.userId) {
+      console.warn("No user ID found in localStorage.");
+      setLoading(false);
+      return;
+    }
     try {
-      //const response = await axios.get("http://localhost:5000/api/gigs/search"); // change to the Applicant route if there is one
-      //setApplicants(response.data);
-      setApplicants([]);
+      const token = localStorage.getItem("token");
+      const res = await axios.get(
+        `http://localhost:5000/api/applicants/notifications?posterUserId=${user.userId}`,
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
+      console.log("Fetched notifications:", res.data);
+      setApplicants(res.data);
+      setLoading(false);
     } catch (error) {
-      console.error("Error fetching applicants:", error);
+      console.error("Error fetching notifications:", error);
       setApplicants([]);
+      setLoading(false);
     }
   };
 
-  // Date functions
-  const Last7Days = () => {
-    var result = [];
-    for (var i = 0; i < 7; i++) {
-      var d = new Date();
-      d.setDate(d.getDate() - i);
-      result.push(d);
-    }
-    setDates(result);
-  }
-
-  const formatDate = (date) => {
-    const month = date.toLocaleString('default', { month: 'long' });
-    const dateText = `${month} ${date.getDate()}, ${date.getFullYear()}`;
-    return dateText;
-  }
-
-  const filterApplicants = (date) => {
-    return applicants.filter(applicant => new Date(applicant.dateApplied).toDateString() === date.toDateString());
-  }
-
+  // Run this effect only once on component mount
   useEffect(() => {
     getApplicants();
-    Last7Days();
+    getLast7Days();
   }, []);
 
+  if (loading) {
+    return (
+      <div className="notifications-container">
+        Loading notifications...
+      </div>
+    );
+  }
+
   return (
-    <div className="search-container">
-      <h2 className="profile-title">NOTIFICATIONS</h2>
-      <p style={{ textAlign: "center" }}>Notifications for the last week.</p>
+    <div className="notifications-container">
+      <h2 className="notifications-title">Notifications</h2>
+      <p className="instructions">Notifications for the last week.</p>
       <div className="grid-container">
         {dates.map((date) => (
-          <div className="date-card" key={date}>
-            <h2>{formatDate(date)}</h2>
+          <div className="date-card" key={date.toISOString()}>
+            <h3 className="date-header">{formatDate(date)}</h3>
             {filterApplicants(date).length > 0 ? (
               filterApplicants(date).map((applicant) => (
-                <div key={applicant._id}>
-                  <a href={`/profile/${applicant.applicantUserId}`}>{applicant.applicantUsername}</a> applied to your posting: <a href={`/gig/${applicant.gigId}`}>{applicant.title}</a>
+                <div key={applicant._id} className="notification-entry">
+                  <a
+                    href={`/profile/${applicant.applicantUserId}`}
+                    className="applicant-link"
+                  >
+                    {applicant.applicantUsername}
+                  </a>{" "}
+                  applied to your posting:{" "}
+                  <a href={`/gig/${applicant.gigId}`} className="gig-link">
+                    {applicant.title}
+                  </a>
                 </div>
               ))
             ) : (
-              <p style={{color: "#909090"}}>No notifications.</p>
+              <p className="no-notifications">No notifications.</p>
             )}
           </div>
         ))}
